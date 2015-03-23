@@ -16,7 +16,7 @@ class P():
         self.buf=buf
 
 def open_pcap(file_name):
-    f = open(file_name,"r")
+    f = open(file_name,"rb") #works only in binary mode
     p = dpkt.pcap.Reader(f)
     return p
 
@@ -38,5 +38,5 @@ if __name__ == "__main__":
     p = open_pcap(sys.argv[1])
     for ts,data in packetizer(p):
         service_controller.get_connection("pcapInput").send(data)
-        time.sleep(0.3)
+        time.sleep(1)
     service_controller.get_connection("pcapInput").close()
