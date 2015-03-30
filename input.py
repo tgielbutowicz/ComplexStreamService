@@ -6,6 +6,7 @@ from ComssServiceDevelopment.development import DevServiceController
 import dpkt
 import time
 import sys
+#import pickle
 
 service_controller = DevServiceController("pcap_service.json")
 service_controller.declare_connection("pcapInput", OutputMulticastConnector(service_controller))
@@ -29,8 +30,8 @@ def packetizer(p):
         yield (ts,buf)
         #print ts, len(buf)
         #e = dpkt.ethernet.Ethernet(buf)
-        ##print e.data
-        ##print "+++++++++++++++++++++"
+        #print e.data
+        #print "+++++++++++++++++++++"
         #yield (ts,str(e))
 
 if __name__ == "__main__":
