@@ -1,6 +1,8 @@
-Usługa strumieniowa wyliczająca statystki, odwiedzin serwisów, ilości używanych wulgaryzmów oraz wyświetleń obrazów, podobnych do zadanych,  na podstawie analizy ruchu sieciowego TCP/IP.
+## Usługa strumieniowa wyliczająca statystki, odwiedzin serwisów, ilości używanych wulgaryzmów oraz wyświetleń obrazów, podobnych do zadanych,  na podstawie analizy ruchu sieciowego TCP/IP.
 
-TCP port splitter
+![Servie Graph](/doc/service_raph.png?raw=true "Servie Graph")
+
+#### TCP port splitter
 
 Opis
 moduł filtruje ruch sieciowy TCP względem wybranego portu 
@@ -15,7 +17,7 @@ rzeczywisty
 Koszt
 niski
 
-TCP stream reasembler
+#### TCP stream reasembler
 
 Opis
 składa ruchu TCP w strumienie
@@ -30,7 +32,7 @@ rzeczywisty
 Koszt
 wysoki
 
-HTTP page spliter
+#### HTTP page spliter
 
 Opis
 moduł filtruje strumienie TCP i wydobywa z nich pliki html
@@ -44,7 +46,8 @@ Czas przetwarzania
 rzeczywisty
 Koszt
 niski
-HTTP text splitter
+
+#### HTTP text splitter
 
 Opis
 moduł filtruje strumień TCP i wydobywa tekst z zapytań
@@ -59,7 +62,7 @@ rzeczywisty
 Koszt
 niski
 
-HTTP graphics splitter
+#### HTTP graphics splitter
 
 Opis
 moduł filtruje strumień TCP i wydobywa przesyłane obrazy
@@ -74,7 +77,7 @@ rzeczywisty
 Koszt
 niski
 
-domain extractor
+#### domain extractor
 
 Opis
 wydobywa adres domeny ze strumieni zawierających pliki html
@@ -88,7 +91,8 @@ Czas przetwarzania
 rzeczywisty
 Koszt
 niski
-vulgarism detector
+
+#### vulgarism detector
 
 Opis
 wykrywa wulgaryzmy w przetwarzanych tekstach, używająć do tego dostarczonego słownika
@@ -103,7 +107,7 @@ rzeczywisty
 Koszt
 średni
 
-object comparator
+#### object comparator
 
 Opis
 porównuje otrzymane obrazki pod względem podobieństwa do zadanych i zgłasza wstąpienia wystarczająco podobnych obrazów
@@ -118,7 +122,7 @@ rzeczywisty
 Koszt
 wysoki
 
-statistics generator
+#### statistics generator
 
 Opis
 generowanie statystyk z wystąpień wszystkich typów
@@ -133,7 +137,7 @@ rzeczywisty
 Koszt
 średni
 
-per user statistics splitter
+#### per user statistics splitter
 
 opis funkcjonalny
 generowanie statystyk w określonym odstępie czasu dla poszczególnych użytkowników
@@ -148,5 +152,7 @@ rzeczywisty
 koszt
 niski
 
-database - zapis wszystkich wystąpień
-statistics panel - wizualizacja statystyk na żywo, oraz archiwalnych
+#### database
+zapis wszystkich wystąpień
+#### statistics panel
+wizualizacja statystyk na żywo, oraz archiwalnych
