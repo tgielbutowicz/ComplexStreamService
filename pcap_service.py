@@ -19,5 +19,3 @@ class PcapService(Service):
 if __name__=="__main__":
     sc = ServiceController(PcapService, "pcap_service.json")
     sc.start()
-
-    //test
