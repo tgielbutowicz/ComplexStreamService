@@ -6,7 +6,8 @@ from ComssServiceDevelopment.development import DevServiceController
 import dpkt
 import time
 import sys
-#import pickle
+import pickle
+import socket
 
 service_controller = DevServiceController("pcap_service.json")
 service_controller.declare_connection("pcapInput", OutputMulticastConnector(service_controller))
@@ -23,16 +24,23 @@ def open_pcap(file_name):
 
 def packetizer(p):
     for ts, buf in p:
-        #print pickle.dumps(buf)
-        #e = dpkt.ethernet.Ethernet(buf)
-        #print "%x" % e.type
-        #print "IP src: %s" % e.data.src
+        e = dpkt.ethernet.Ethernet(buf)
+        if e.type!=dpkt.ethernet.ETH_TYPE_IP:
+            continue
+        ip=e.data
+        if ip.p not in (dpkt.ip.IP_PROTO_TCP, dpkt.ip.IP_PROTO_UDP):
+            continue
+        tcp=ip.data
+        src = socket.inet_ntoa(ip.src)
+        dst = socket.inet_ntoa(ip.dst)
+        print "%s -> %s" % (src, dst)
+        print "port: %s -> %s" % (tcp.sport, tcp.dport)
+        # print pickle.dumps(buf)
+
         yield (ts,buf)
-        #print ts, len(buf)
-        #e = dpkt.ethernet.Ethernet(buf)
-        #print e.data
-        #print "+++++++++++++++++++++"
-        #yield (ts,str(e))
+        print ts, len(buf)
+        print "+++++++++++++++++++++"
+        # yield (ts,str(e))
 
 if __name__ == "__main__":
     print "Opening file: %s" % sys.argv[1]
