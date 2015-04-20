@@ -9,7 +9,7 @@ import sys
 import pickle
 import socket
 
-service_controller = DevServiceController("pcap_service.json")
+service_controller = DevServiceController("tcp_splitter.json")
 service_controller.declare_connection("pcapInput", OutputMulticastConnector(service_controller))
 
 class P():
@@ -24,19 +24,6 @@ def open_pcap(file_name):
 
 def packetizer(p):
     for ts, buf in p:
-        e = dpkt.ethernet.Ethernet(buf)
-        if e.type!=dpkt.ethernet.ETH_TYPE_IP:
-            continue
-        ip=e.data
-        if ip.p not in (dpkt.ip.IP_PROTO_TCP, dpkt.ip.IP_PROTO_UDP):
-            continue
-        tcp=ip.data
-        src = socket.inet_ntoa(ip.src)
-        dst = socket.inet_ntoa(ip.dst)
-        print "%s -> %s" % (src, dst)
-        print "port: %s -> %s" % (tcp.sport, tcp.dport)
-        # print pickle.dumps(buf)
-
         yield (ts,buf)
         print ts, len(buf)
         print "+++++++++++++++++++++"
