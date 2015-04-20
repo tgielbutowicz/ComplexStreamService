@@ -1,0 +1,12 @@
+{"parametersHost": "localhost:11111",
+"inputs":
+  {"pcapInput":{
+    "ip": "127.0.0.1",
+    "port": 10070}
+    },
+"outputs":
+  {"tcpOutput":{
+    "ip": "127.0.0.1",
+    "port": 10080}
+    }
+}
