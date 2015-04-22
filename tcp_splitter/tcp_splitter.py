@@ -7,7 +7,7 @@ import dpkt
 import socket
 
 
-class PcapService(Service):
+class TCP_Splitter(Service):
     def run(self):
         output = self.get_output("tcpOutput")
         while True:
@@ -33,5 +33,5 @@ class PcapService(Service):
 
 
 if __name__=="__main__":
-    sc = ServiceController(PcapService, "tcp_splitter.json")
+    sc = ServiceController(TCP_Splitter, "tcp_splitter.json")
     sc.start()
