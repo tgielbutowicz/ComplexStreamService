@@ -1,0 +1,9 @@
+{"parametersHost": "localhost:11111",
+"inputs":
+  {"testInput":{
+    "ip": "127.0.0.1",
+    "port": 10090}
+    },
+"outputs":
+  {}
+}

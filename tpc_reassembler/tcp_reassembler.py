@@ -6,18 +6,21 @@ import dpkt
 import socket
 
 
-class EndService(Service):
+class TCP_Reassembler(Service):
     def run(self):
+        output = self.get_output("tcpOutput")
         while True:
-            print self.get_input("testInput").read()
+            buf = self.get_input("tcpInput").read()
+
+            output.send(str(buf))
 
     def declare_inputs(self):
-        self.declare_input("testInput", InputMessageConnector(self))
+        self.declare_input("tcpInput", InputMessageConnector(self))
 
     def declare_outputs(self):
-        pass
+        self.declare_output("tcpOutput", OutputMessageConnector(self))
 
 
 if __name__=="__main__":
-    sc = ServiceController(EndService, "consumer.json")
+    sc = ServiceController(TCP_Reassembler, "tcp_reassembler.json")
     sc.start()

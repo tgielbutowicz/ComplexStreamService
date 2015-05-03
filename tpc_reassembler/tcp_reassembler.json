@@ -1,9 +1,12 @@
 {"parametersHost": "localhost:11111",
 "inputs":
-  {"testInput":{
+  {"tcpInput":{
     "ip": "127.0.0.1",
     "port": 10080}
     },
 "outputs":
-  {}
+  {"tcpOutput":{
+    "ip": "127.0.0.1",
+    "port": 10090}
+    }
 }

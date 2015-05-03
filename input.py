@@ -9,7 +9,7 @@ import sys
 import pickle
 import socket
 
-service_controller = DevServiceController("tcp_splitter.json")
+service_controller = DevServiceController("tcp_splitter/tcp_splitter.json")
 service_controller.declare_connection("pcapInput", OutputMulticastConnector(service_controller))
 
 class P():
