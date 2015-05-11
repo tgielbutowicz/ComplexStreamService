@@ -23,7 +23,7 @@ class TCP_Splitter(Service):
             dst = socket.inet_ntoa(ip.dst)
             print "%s -> %s" % (src, dst)
             print "port: %s -> %s" % (tcp.sport, tcp.dport)
-            output.send(str(tcp))
+            output.send(str(e))
 
     def declare_inputs(self):
         self.declare_input("pcapInput", InputMulticastConnector(self))
