@@ -11,6 +11,11 @@ class TCP_Reassembler(Service):
         output = self.get_output("tcpOutput")
         while True:
             buf = self.get_input("tcpInput").read()
+            e = dpkt.ethernet.Ethernet(buf)
+            ip=e.data
+            tcp=ip.data
+            tcp.seq
+            print tcp.seq
 
             output.send(str(buf))
 
