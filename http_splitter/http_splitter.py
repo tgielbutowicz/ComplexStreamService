@@ -30,10 +30,6 @@ def get_net_target(page):
 
     return url
 
-#def word_find(line,words):
-   # return list(set(line.strip().split()) & set(words))
-
-
 
 
 with open("trial.txt") as fh:
