@@ -7,7 +7,8 @@ __author__ = 'Sandra'
 import dpkt
 
 
-f = open(r'C:\Users\Sandra\PycharmProjects\ComplexStreamService\http_page_splitter\test.pcap')
+f = open(r'C:/Users/Sandra/PycharmProjects/ComplexStreamService/http_page_splitter/test.pcap')
+
 pcap = dpkt.pcap.Reader(f)
 
 for ts, buf in pcap:
