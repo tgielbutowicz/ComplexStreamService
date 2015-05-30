@@ -4,7 +4,7 @@ import re
 
 
 
-def get_word(page):
+def find_word(page):
     start_link=page.find("ip:")
     start_quote=page.find('"',start_link)
     end_quote=page.find('"',start_quote+1)
@@ -12,7 +12,7 @@ def get_word(page):
 
     return word
 
-def get_word2(page):
+def find_word2(page):
     start_link=page.find("port:")
     start_quote=page.find('"',start_link)
     end_quote=page.find('"',start_quote+1)
@@ -34,7 +34,7 @@ def get_net_target(page):
 
 with open("trial.txt") as fh:
    for line in fh:
-      print(get_net_target(line),get_word(line),get_word2(line))
+      print(get_net_target(line),find_word(line),find_word2(line))
 
 
 
