@@ -24,7 +24,7 @@ def search_word(jsonData, dictionary):
             return cnt, temp
 
 
-def put(ip, port, data, filename):
+def put(ip, port,site, data, filename):
     try:
         jsondata = json.dumps({'ip': ip, 'port': port, 'word': data})
         fd = open(filename, 'w')
